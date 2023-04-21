@@ -5,14 +5,14 @@ import {
   SearchFormButton,
   SearchFormInput,
 } from './Searchbar.styled';
+import { ReactComponent as SerchIcon } from './../../images/search.svg';
+import { Component } from 'react';
+import Notiflix from 'notiflix';
 
-const Serchbar = ({ onSubmit }) => {
-  return (
-    <Header>
-      <SearchForm>
-        <SearchFormButton type="submit">
-          <img src="./images/loupe.png" alt="" />
-        </SearchFormButton>
+class Serchbar extends Component {
+  state = {
+    request: '',
+  };
 
         <SearchFormInput
           type="text"
