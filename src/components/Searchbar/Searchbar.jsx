@@ -11,31 +11,31 @@ import Notiflix from 'notiflix';
 
 class Serchbar extends Component {
   state = {
-    request: '',
+    value: '',
   };
 
   handelCategotyChange = e => {
-    this.setState({ request: e.currentTarget.value.toLowerCase() });
+    this.setState({ value: e.currentTarget.value.toLowerCase() });
   };
 
   handelSubmit = e => {
     e.preventDefault();
 
-    if (this.state.request.trim() === '') {
+    if (this.state.value.trim() === '') {
       return Notiflix.Notify.failure('You have entered a category name');
     }
 
-    this.props.onSubmit(this.state.request);
-    this.setState({ request: '' });
+    this.props.onSubmit(this.state.value);
+    this.setState({ value: '' });
   };
   render() {
-    const { request } = this.state;
+    const { value } = this.state;
     return (
       <Header>
         <SearchForm onSubmit={this.handelSubmit}>
           <SearchFormInput
             onChange={this.handelCategotyChange}
-            value={request}
+            value={value}
             type="text"
             autocomplete="off"
             placeholder="Search images and photos"

@@ -2,16 +2,16 @@ import PropTypes from 'prop-types';
 import ImgGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 import { GalleryList } from './ImageGallery.styled';
 
-const ImgGallery = ({ hits, openModal }) => {
+const ImgGallery = ({ images, onClose }) => {
   return (
     <GalleryList>
-      {hits &&
-        hits.map(hit => (
+      {images &&
+        images.map(image => (
           <ImgGalleryItem
-            key={hit.id}
-            webformatURL={hit.webformatURL}
-            tags={hit.tags}
-            openModal={() => openModal(hit.largeImageURL)}
+            key={image.id}
+            webformatURL={image.webformatURL}
+            tags={image.tags}
+            onClose={() => onClose(image.largeImageURL)}
           />
         ))}
     </GalleryList>
